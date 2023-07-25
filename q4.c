@@ -4,26 +4,34 @@
 
 int main(){
     int tam=0, i=0;
-    char string[50];
+    char string[100];
     char **p;
-    char *pAux;
+    char **pAux;
 
 
     while(scanf(" %s", string)!=EOF){
-        p = (char **) malloc((tam+1) * strlen(string) * sizeof(char *));
-        *p = string;
-        pAux = *p;
-        if(p!=NULL){
-            p[tam++] = realloc(pAux, (tam+1) * strlen(string) * sizeof(char));
-            p[tam++] = string;
-            for(i=0; i<tam; i++){
-                printf("%s\n", *p[i]);        
-            }
+        pAux = p;
+        p = (char **) realloc(pAux, (tam+1)* sizeof(char *));
+        if(p==NULL){
+            printf("Problema de alocacao!\n");
+            free(p);
+            exit(1);
         }
+        p[tam] = (char *) malloc((strlen(string)+1) * sizeof(char));
+        strcpy(p[tam++], string);
+    }
+
+    printf("\n");
+
+    for(i=0; i<tam; i++){
+        printf("%s\n", p[i]);
+    }
+
+    for(i=0; i<tam; i++){
+        free(p[i]);
     }
     free(p);
-
-
-
+    
+    
     return 0;
 }
