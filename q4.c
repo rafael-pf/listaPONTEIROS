@@ -8,7 +8,7 @@ int main(){
     char **p;
     char **pAux;
 
-
+    printf("Digite as palavras: \n");
     while(scanf(" %s", string)!=EOF){
         pAux = p;
         p = (char **) realloc(pAux, (tam+1)* sizeof(char *));
@@ -21,10 +21,10 @@ int main(){
         strcpy(p[tam++], string);
     }
 
-    printf("\n");
+    printf("Palavras armazenadas: \n");
 
     for(i=0; i<tam; i++){
-        printf("%s\n", p[i]);
+        printf("\t-%s\n", p[i]);
     }
 
     for(i=0; i<tam; i++){
