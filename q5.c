@@ -48,6 +48,11 @@ int main(){
             }
             tam--;
             p = (produto *) realloc(pAux, tam *sizeof(produto));
+            if(p==NULL){
+                printf("Problema de alocacao");
+                free(p);
+                exit(1);
+            }
         }
         
     } while(strcmp(comando, "END")!=0);
