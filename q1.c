@@ -21,6 +21,8 @@ int main(){
     printf("\t\tO 1o eh o endereco para o qual o ponteiro aponta (endereco de c) e o 2o eh o conteudo do ponteiro (conteudo do end de memoria que ele esta).\n");
     printf("\t\tEles sao iguais porque o conteudo do end de memoria do ponteiro eh o end de memoria que ele aponta, que no caso eh o end de da variavel c.\n");
 
+    //oiiiiiiii
+
 
     return 0;
 }
